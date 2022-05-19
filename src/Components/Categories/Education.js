@@ -77,8 +77,8 @@ const Education = () => {
           </Button>
  </div>
       </div>) : (<div className='edu__main'>
-          <div className='digits__document'>
-            <div className='num__topic'>
+          <div className='topic__document'>
+            <div className='topic__name'>
               Topic Name (e.g. 1,2,3,4....)
             </div>
             <input type='text' className='text__input' placeholder='Topic Name' />
@@ -97,8 +97,8 @@ const Education = () => {
             </Button>
           </div>
 
-    <div className='num__collection'>
-     <div className='num__topic'>
+    <div className='topic__lesson__collection'>
+     <div className='topic__name'>
               Topic Details
             </div>
             <input type='text' className='text__input' placeholder='Text' />
