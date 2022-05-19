@@ -1,0 +1,35 @@
+.edu__main {
+    display: flex;
+    margin-top: 50px;
+    width: 80%;
+    justify-content: space-around;
+
+}
+.topic__document {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+.topic__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+.topic__lesson__collection {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.text__input {
+    padding: 10px;
+    border-radius: 7px;
+    width: 90%;
+    margin-top: 10px;
+    font-size: 18px;
+}

@@ -1,88 +1,144 @@
-import * as React from 'react';
+import * as React  from 'react';
+import {Button} from '@mui/material'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Formik } from 'formik';
+import './CategStyles.css'
 
 const Education = () => {
 
   const [subject, setSubject] = React.useState('ABC');
+  const hiddenFileInput = React.useRef(null);
 
   const handleChange = (event) => {
     setSubject(event.target.value);
+  };
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
   };
 
   const funct = () => {
     return (
       <div>
       {
-        subject === 'ABC' ? (<div>
-          ABC
-        </div>) : (<div>
-          <div className='123__document'>
-            <input type='file' />
-            <input type='text' />
+        subject === 'ABC' ? (<div className='edu__main'>
+        <div className='topic__document'>
+          <div className='topic__name'>
+            Topic Name (e.g. A,B,C,D.....)
+          </div>
+          <input type='text' className='text__input' placeholder='Topic Name' />
+          <input type='file' className='file__input' style={{display: 'none'}} ref={hiddenFileInput} />
+          <Button
+          onClick={handleClick}
+          style={{
+            backgroundColor: '#FFA500',
+            color: '#fff',
+            width: '90%',
+            marginTop: 10,
+            padding: '10px'
+          }}
+          >
+            Topic Image
+          </Button>
+        </div>
+
+  <div className='topic__lesson__collection'>
+   <div className='topic__name'>
+            Topic Details
+          </div>
+          <input type='text' className='text__input' placeholder='Text' />
+          <input type='file' className='file__input' style={{display: 'none'}} ref={hiddenFileInput} />
+          <Button
+          onClick={handleClick}
+          style={{
+            backgroundColor: '#FFA500',
+            color: '#fff',
+            width: '90%',
+            marginTop: 10,
+            padding: '10px'
+          }}
+          >
+            Upload Image
+          </Button>
+
+          <Button
+          onClick={handleClick}
+          style={{
+            backgroundColor: '#FFA500',
+            color: '#fff',
+            width: '90%',
+            marginTop: 10,
+            padding: '10px'
+          }}
+          >
+            Upload Video
+          </Button>
+ </div>
+      </div>) : (<div className='edu__main'>
+          <div className='digits__document'>
+            <div className='num__topic'>
+              Topic Name (e.g. 1,2,3,4....)
+            </div>
+            <input type='text' className='text__input' placeholder='Topic Name' />
+            <input type='file' className='file__input' style={{display: 'none'}} ref={hiddenFileInput} />
+            <Button
+            onClick={handleClick}
+            style={{
+              backgroundColor: '#FFA500',
+              color: '#fff',
+              width: '90%',
+              marginTop: 10,
+              padding: '10px'
+            }}
+            >
+              Topic Image
+            </Button>
           </div>
 
-          <div>
-     <h1>Anywhere in your app!</h1>
-     <Formik
-       initialValues={{ email: '', password: '' }}
-       validate={values => {
-         const errors = {};
-         if (!values.email) {
-           errors.email = 'Required';
-         } else if (
-           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-         ) {
-           errors.email = 'Invalid email address';
-         }
-         return errors;
-       }}
-       onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-           setSubmitting(false);
-         }, 400);
-       }}
-     >
-       {({
-         values,
-         errors,
-         touched,
-         handleChange,
-         handleBlur,
-         handleSubmit,
-         isSubmitting,
-         /* and other goodies */
-       }) => (
-         <form onSubmit={handleSubmit}>
-           <input
-             type="email"
-             name="email"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.email}
-           />
-           {errors.email && touched.email && errors.email}
-           <input
-             type="password"
-             name="password"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.password}
-           />
-           {errors.password && touched.password && errors.password}
-           <button type="submit" disabled={isSubmitting}>
-             Submit
-           </button>
-         </form>
-       )}
-     </Formik>
+    <div className='num__collection'>
+     <div className='num__topic'>
+              Topic Details
+            </div>
+            <input type='text' className='text__input' placeholder='Text' />
+            <input type='file' className='file__input' style={{display: 'none'}} ref={hiddenFileInput} />
+            <Button
+            onClick={handleClick}
+            style={{
+              backgroundColor: '#FFA500',
+              color: '#fff',
+              width: '90%',
+              marginTop: 10,
+              padding: '10px'
+            }}
+            >
+              Upload Image
+            </Button>
+
+            <Button
+            onClick={handleClick}
+            style={{
+              backgroundColor: '#FFA500',
+              color: '#fff',
+              width: '90%',
+              marginTop: 10,
+              padding: '10px'
+            }}
+            >
+              Upload Video
+            </Button>
    </div>
         </div>)
       }
+      <Button style={{
+        width: '100%',
+        backgroundColor: 'red',
+        marginTop: 30,
+        color: '#fff'
+      }}>
+        Submit DATA
+      </Button>
       </div>
     )
   }
@@ -107,6 +163,7 @@ const Education = () => {
       </FormControl>
 
       {funct()}
+
     </div>
   )
 }
