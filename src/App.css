@@ -1,0 +1,7 @@
+.App {
+    background: url('./Images/bg.jpeg');
+    background-size: cover;
+    width: 100wh;
+    height: 100vh;
+    color: #fff;
+}

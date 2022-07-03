@@ -1,63 +1,78 @@
 import React, {useState} from 'react'
-import loginAsset from '../Images/login.png'
+import regAsset from '../Images/join.png'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import './pageStyles.css'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
-const Login = () => {
+const Register = () => {
 
   const [load, setLoad] = useState(false)
   const navigate = useNavigate()
 
   const DisplayingErrorMessagesSchema = Yup.object().shape({
-    username: Yup.string().required('Username is required!'),
-    password: Yup.string().required('Please provide your password for login!')
+    username: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Please provide a username'),
+    email: Yup.string().email('Please provide a valid email').required('Email is required'),
+    password: Yup.string().min(8, ({ min }) => `Password must be at least ${min} characters`).required('Password is required')
   });
 
   return (
     <div className='my__form__container'>
     <div className='form__main'>
       <div className='form__left'>
-        <img src={loginAsset} alt="LOGIN ASSET" className='form__asset' />
+        <img src={regAsset} alt="JOIN ASSET" className='form__asset' />
       </div>
 
       <div className='form__right'>
       <div className='my__form'>
-        <div className='form__header'> Login to your account</div>
+        <div className='form__header'> Create New account</div>
       <Formik
        initialValues={{
          username: '',
+         email: '',
          password: ''
 
        }}
        validationSchema={DisplayingErrorMessagesSchema}
        onSubmit={values => {
         setLoad(true)
-         axios.post('https://ghani-adminpanel.herokuapp.com/login', {
+         axios.post('https://ghani-adminpanel.herokuapp.com/register', {
+          email: values.email,
           username: values.username,
           password: values.password
         })
         .then(function (response) {
           console.log(response);
-          navigate('/home')
-          toast.success('Logged In SuccessFully!')
+          navigate('/')
+          toast.success('Registered SuccessFully!!!')
           setLoad(false)
         })
         .catch(function (error) {
           console.log(error);
-          toast.error("Error in Login!")
+          toast.error("Sorry! An Error occured while registering")
           setLoad(false)
         });
+         console.log(values);
        }}
       >
        {({ errors, touched }) => (
          <Form className='form'>
+          <div className='login__fields__wrapper'>
+            <div className='login__row__wrapper'>
+            <label className='label'>Email</label>
+            <Field name="email" className='input__field' placeholder='Please Enter Your Email' />
+            {touched.email && errors.email && <div className='error__msg'>{errors.email}</div>}
+            </div>
+          </div>
+
           <div className='login__fields__wrapper'>
             <div className='login__row__wrapper'>
             <label className='label'>UserName</label>
@@ -83,17 +98,17 @@ const Login = () => {
               color: '#fff',
               width: '100%',
               marginTop: 15,
-              height: 40
+              height: 40,
             }}
             >
               {
-                load ? <CircularProgress color='inherit' /> : 'Login'
+                load ? <CircularProgress color='inherit' /> : 'Register'
               }
             </Button>
           </div>
 
           <div className='fields__wrapper'>
-            <Link to='/register'> Don't have an account? Register</Link>
+            <Link to='/'> Already have an account? Login</Link>
           </div>
          </Form>
        )}
@@ -105,4 +120,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

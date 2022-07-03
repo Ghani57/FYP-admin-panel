@@ -37,7 +37,9 @@ const Education = () => {
             color: '#fff',
             width: '90%',
             marginTop: 10,
-            padding: '10px'
+            padding: '10px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
           >
             Topic Image
@@ -57,7 +59,9 @@ const Education = () => {
             color: '#fff',
             width: '90%',
             marginTop: 10,
-            padding: '10px'
+            padding: '10px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
           >
             Upload Image
@@ -70,7 +74,9 @@ const Education = () => {
             color: '#fff',
             width: '90%',
             marginTop: 10,
-            padding: '10px'
+            padding: '10px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
           >
             Upload Video
@@ -90,7 +96,9 @@ const Education = () => {
               color: '#fff',
               width: '90%',
               marginTop: 10,
-              padding: '10px'
+              padding: '10px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
             >
               Topic Image
@@ -110,7 +118,9 @@ const Education = () => {
               color: '#fff',
               width: '90%',
               marginTop: 10,
-              padding: '10px'
+              padding: '10px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
             >
               Upload Image
@@ -123,7 +133,9 @@ const Education = () => {
               color: '#fff',
               width: '90%',
               marginTop: 10,
-              padding: '10px'
+              padding: '10px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
             >
               Upload Video
@@ -133,7 +145,7 @@ const Education = () => {
       }
       <Button style={{
         width: '100%',
-        backgroundColor: 'red',
+        backgroundColor: '#00FF00',
         marginTop: 30,
         color: '#fff'
       }}>
@@ -156,6 +168,10 @@ const Education = () => {
           value={subject}
           label="Subject"
           onChange={handleChange}
+          style={{
+            backgroundColor: '#fff',
+            color: 'blue'
+          }}
         >
           <MenuItem value='ABC'>ABC</MenuItem>
           <MenuItem value='123'>123</MenuItem>

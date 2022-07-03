@@ -31,5 +31,93 @@
     border-radius: 7px;
     width: 90%;
     margin-top: 10px;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Forms */
+
+.data__upload {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 10px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    height: max-content;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.add__item {
+    width: 40%;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Health */
+.health {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.fetch__diseases {
+    width: 45%;
+    padding: 10px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+.add__dis__title {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.select__dis {
+    padding: 10px;
+    border-radius: 8px;
+    color: blue;
+    font-size: 16px;
+    cursor: pointer;
+}
+.add__btn__wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
     font-size: 18px;
+    font-weight: 700;
+}
+.health__add__data {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.health__add__data > input {
+    padding: 10px;
+    border-radius: 7px;
+    width: 90%;
+    margin-top: 10px;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+/* Agriculture */
+.agriculture {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.agr__details {
+    width: 45%;
+    padding: 10px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    height: max-content;
+    padding-bottom: 20px;
 }

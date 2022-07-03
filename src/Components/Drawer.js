@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -22,15 +21,16 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Logo from '../Images/logo.jpeg'
 
 import Health from '../Components/Categories/Health'
 import Education from '../Components/Categories/Education'
 import Ecommerce from '../Components/Categories/Ecommerce'
 import Agriculture from '../Components/Categories/Agriculture'
 
-import avatar from '../Images/avatar.PNG'
+import avatar from '../Images/avatar.jpg'
+import Profile from '../Pages/Profile';
 
 const drawerWidth = 240;
 
@@ -85,12 +85,17 @@ export default function PersistentDrawerLeft() {
   const [education, setEducation] = React.useState(false)
   const [ecommerce, setEcommerce] = React.useState(false)
   const [agriculture, setAgriculture] = React.useState(false)
+  const [itemStyle, setItemStyle] = React.useState('Health')
+  const [profile, setProfile] = React.useState(false)
+  
 
   const displayEducation = () => {
     setAgriculture(false)
     setEducation(true)
     setEcommerce(false)
     setHealth(false)
+    setProfile(false)
+    setItemStyle('Education')
   }
 
   const displayAgriculture = () => {
@@ -98,6 +103,8 @@ export default function PersistentDrawerLeft() {
     setEducation(false)
     setEcommerce(false)
     setHealth(false)
+    setProfile(false)
+    setItemStyle('Agriculture')
   }
 
   const displayHealth = () => {
@@ -105,6 +112,8 @@ export default function PersistentDrawerLeft() {
     setEducation(false)
     setEcommerce(false)
     setHealth(true)
+    setProfile(false)
+    setItemStyle('Health')
   }
 
   const displayEcommerce = () => {
@@ -112,6 +121,17 @@ export default function PersistentDrawerLeft() {
     setEducation(false)
     setEcommerce(true)
     setHealth(false)
+    setProfile(false)
+    setItemStyle('Ecommerce')
+  }
+
+  const displayProfile = () => {
+    setAgriculture(false)
+    setEducation(false)
+    setEcommerce(false)
+    setHealth(false)
+    setProfile(true)
+    setItemStyle('Profile')
   }
 
 
@@ -127,9 +147,14 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }}
+    >
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open}
+      style={{
+        backgroundColor: '#373959'
+      }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -141,9 +166,12 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Box sx={{ flexGrow: 1}}>
-          <Typography variant="h6" noWrap component="div" >
-            DigiAccess
-          </Typography>
+
+            <div style={{display: 'flex', alignItems: 'center'}}>
+            <div><img src={Logo} style={{height: '40px', width: '40px'}} alt="LOGO" /></div>
+            <div style={{marginLeft: 10, fontSize: '18px'}}>DigiAccess</div>
+            </div>
+          
           </Box>
 
           <Box>
@@ -167,6 +195,11 @@ export default function PersistentDrawerLeft() {
         variant="persistent"
         anchor="left"
         open={open}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#373959"
+          }
+        }}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -174,39 +207,72 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List
+        >
             <ListItem button 
+            style={{
+              backgroundColor: itemStyle === 'Education' ? '#fff' : '' ,
+              color: itemStyle === 'Education' ? 'blue' : '#fff'
+            }}
             onClick={displayEducation}
             >
               <ListItemIcon>
-                <SchoolIcon />
+                <SchoolIcon 
+                style={{
+                  color: itemStyle === 'Education' ? 'blue' : '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Education' />
             </ListItem>
 
             <ListItem button 
+            style={{
+              backgroundColor: itemStyle === 'Health' ? '#fff' : '' ,
+              color: itemStyle === 'Health' ? 'blue' : '#fff'
+            }}
             onClick={displayHealth}
             >
               <ListItemIcon>
-                <HealthAndSafetyIcon />
+                <HealthAndSafetyIcon 
+                style={{
+                  color: itemStyle === 'Health' ? 'blue' : '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Health' />
             </ListItem>
 
             <ListItem button 
+            style={{
+              backgroundColor: itemStyle === 'Agriculture' ? '#fff' : '' ,
+              color: itemStyle === 'Agriculture' ? 'blue' : '#fff'
+            }}
             onClick={displayAgriculture}
             >
               <ListItemIcon>
-                <AgricultureIcon />
+                <AgricultureIcon 
+                style={{
+                  color: itemStyle === 'Agriculture' ? 'blue' : '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Agriculture' />
             </ListItem>
 
             <ListItem button 
+            style={{
+              backgroundColor: itemStyle === 'Ecommerce' ? '#fff' : '' ,
+              color: itemStyle === 'Ecommerce' ? 'blue' : '#fff'
+            }}
             onClick={displayEcommerce}
             >
               <ListItemIcon>
-                <ShoppingCartIcon />
+                <ShoppingCartIcon 
+                style={{
+                  color: itemStyle === 'Ecommerce' ? 'blue' : '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Ecommerce' />
             </ListItem>
@@ -215,23 +281,35 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
 
-            <ListItem button >
+            <ListItem button 
+            onClick={displayProfile}
+            style={{
+              backgroundColor: itemStyle === 'Profile' ? '#fff' : '' ,
+              color: itemStyle === 'Profile' ? 'blue' : '#fff'
+            }}
+            >
               <ListItemIcon>
-                <AccountCircleIcon />
+                <AccountCircleIcon 
+                style={{
+                  color: itemStyle === 'Profile' ? 'blue' : '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Profile' />
             </ListItem>
 
-            <ListItem button >
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary='Settings' />
-            </ListItem>
 
-            <ListItem button >
+            <ListItem button 
+            style={{
+              color: '#fff'
+            }}
+            >
               <ListItemIcon>
-                <LogoutIcon />
+                <LogoutIcon 
+                style={{
+                  color: '#fff'
+                }}
+                />
               </ListItemIcon>
               <ListItemText primary='Logout' />
             </ListItem>
@@ -246,6 +324,9 @@ export default function PersistentDrawerLeft() {
         { ecommerce && ( <Ecommerce /> ) }
 
         { agriculture && ( <Agriculture /> ) }
+
+        {profile && ( <Profile />)}
+
         </Main>
     </Box>
   );

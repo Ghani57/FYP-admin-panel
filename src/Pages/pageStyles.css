@@ -1,9 +1,226 @@
-.login__form {
-    width: max-content;
+.home__page {
+    background: url('../Images//bg.jpeg');
+    background-size: cover;
+    width: 100wh;
+    color: #fff;
+}
+
+/* Forms */
+.my__form__container {
+    background-color: #fff;
+    height: 100vh;
+    width: 100wh;
+    overflow: hidden;
+}
+.form__main {
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid blue;
-    padding: 20px;
-    margin-top: 100px;
-    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+.form__left {
+    width: 40%;
+}
+.form__right {
+    width: 60%;
+}
+.form__asset {
+    height: 700px;
+    width: 100%; 
+}
+
+/* Register Form */
+.my__form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+}
+.form__header {
+    width: max-content;
+    font-size: 30px;
+    color: #0000FF;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+}
+.form {
+    margin-top: 50px;
+}
+.fields__wrapper {
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.row__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+.label {
+    font-weight: 600;
+}
+.input__field {
+    outline: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #696969;
+}
+.error__msg {
+    color: #FF0000;
+    font-size: 12px;
+}
+
+/* For Screen Sizes */
+@media only screen and (min-width: 700px) and (max-width: 900px) {
+    .my__form {
+        margin-top: 40px;
+    }
+    .form {
+        margin-top: 20px;
+    }
+    .form__main {
+        margin-top: 100px;
+    }
+    .form__left {
+        display: none;
+    }
+    .form__right {
+        width: 100%;
+        height: max-content;
+        padding-bottom: 50px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .form__main {
+        margin-top: 10px;
+    }
+    .my__form {
+        margin-top: 20px;
+    }
+    .form {
+        margin-top: 10px;
+    }
+    .form__left {
+        display: none;
+    }
+    .form__right {
+        width: 100%;
+        height: max-content;
+        padding-bottom: 20px;
+    }
+    .fields__wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+    .row__wrapper {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .label {
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    .form__header {
+        font-size: 18px;
+    }
+}
+
+/* Login */
+.login__row__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.login__fields__wrapper {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Edit Profile */
+.profile__page {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile__header {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+.edit__profile {
+    margin-top: 50px;
+}
+.edit__profile__top {
+    display: flex;
+    align-items: center;
+}
+.edit__profile__name {
+    margin-left: 30px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.edit__profile__form {
+    margin-top: 20px;
+    width: 50%
+}
+.edit__profile__input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.edit__profile__label {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+.edit__profile__input > input {
+    outline: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #696969;
+    color: #696969;
+}
+.edit__profile__img {
+    position: relative;
+}
+.edit__profile__icon {
+    position: absolute;
+    left: 325px;
+    top: 220px;
+}
+
+@media screen and (max-width: 780px) {
+    .profile__header {
+        font-size: 30px;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .edit__profile {
+        margin-top: 10px;
+    }
+    .form__main {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .edit__profile__top {
+        flex-direction: column;
+    }
+    .edit__profile__name {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+    .edit__profile__form {
+        width: 100%;
+    }
 }
